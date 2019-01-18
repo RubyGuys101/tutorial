@@ -1,0 +1,5 @@
+TMPDIR=/tmp
+TMP=/tmp
+TEMP=/tmp
+RAILS_ENV=development
+RACK_ENV=development

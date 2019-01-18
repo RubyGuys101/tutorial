@@ -16,7 +16,8 @@ WORKDIR /tutorial
 # Copy the Gemfile & Gemfile.lock and install the RubyGems.
 # This is a separate step so the dependencies will be cached
 # unless changes to one of those two files are made.
-RUN gem install rails && rails new . tutorial --skip-bundle --database=postgresql
+COPY Gemfile Gemfile.lock ./
+RUN gem install bundler && bundle install
 
 # Copy the main application.
 COPY . ./
@@ -24,13 +25,3 @@ COPY . ./
 # Configure an entry point, so we don't need to specify
 # "bundle exec" for each of our commands.
 ENTRYPOINT ["bundle", "exec"]
-
-
-# Installation Guide
-#
-# 1. Copy Rails files to local host
-#
-# 1) docker build . -t tutorial
-# 2) docker run -ti --name tutorial_container tutorial:latest /bin/bash
-# 3) neuer Terminal Tab
-# 4) docker cp tutorial_container:/tutorial/. .              |||||||||            [https://stackoverflow.com/a/22050116]

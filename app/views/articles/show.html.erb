@@ -1,5 +1,8 @@
-<h1> <%= @article.title %> </h1>
+<h1>
+  <%= @article.title %>
+</h1>
 <p>
+  <%= image_tag(@article.image, style: 'height: 60px; float: right;') %>
   Tags:
   <% @article.tags.each do |tag| %>
   <%= link_to tag.name, tag_path(tag) %>

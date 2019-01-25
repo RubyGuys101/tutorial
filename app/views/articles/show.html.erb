@@ -2,7 +2,9 @@
   <%= @article.title %>
 </h1>
 <p>
-  <%= image_tag(@article.image, style: 'height: 60px; float: right;') %>
+  <% if @article.image.attached? %>
+    <%= image_tag(@article.image, style: 'height: 60px; float: right;') %>
+  <% end %>
   Tags:
   <% @article.tags.each do |tag| %>
   <%= link_to tag.name, tag_path(tag) %>

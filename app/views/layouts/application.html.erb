@@ -17,6 +17,9 @@
     <br>
     <br>
     <br>
+    <% if author_signed_in? %>
+      <%= link_to "Sign Out", destroy_author_session_path, method: :delete, style: 'float: right' %>
+    <% end %>
     <h5>
       <%= link_to "All Articles", articles_path %>
       <%= link_to "ALL Tags", tags_path %>

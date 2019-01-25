@@ -1,16 +1,10 @@
 Rails.application.routes.draw do
-  root to: 'article#index'
+  devise_for :authors
+
+  resources :tags
   resources :articles do
     resources :comments
   end
-end
-
-Tutorial::Application.routes.draw do
 
   root to: 'articles#index'
-  resources :articles do
-    resources :comments
-  end
-  resources :tags
-
 end

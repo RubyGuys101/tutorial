@@ -3,6 +3,9 @@
 <ul id="articles">
   <% @articles.each do |article| %>
     <li>
+      <% if article.image.attached? %>
+        <%= image_tag(article.image, style: 'height: 30px; float: right;') %>
+      <% end %>
       <%= link_to article.title, article_path(article) %>
     </li>
   <% end %>

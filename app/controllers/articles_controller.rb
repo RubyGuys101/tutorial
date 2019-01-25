@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_author!, only: [:index]
   def index
     @articles = Article.all
   end

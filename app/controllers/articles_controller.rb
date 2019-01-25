@@ -28,6 +28,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     # destroy comments of @article
     @article.comments.destroy_all
+    @article.taggings.destroy_all
     # set flash notice
     flash.notice = "Article '#{@article.title}' Destroy!"
     # destroy @article itself
